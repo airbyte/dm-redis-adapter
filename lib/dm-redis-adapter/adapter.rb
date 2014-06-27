@@ -56,7 +56,9 @@ module DataMapper
             record
           end
         end
-        query.filter_records(records)
+        # We are querying with the Redis ID so don't want the filter
+        #query.filter_records(records)
+        records
       end
 
       ##
@@ -66,7 +68,7 @@ module DataMapper
       # should be updated.
       #
       # @param [Hash] attributes
-      #   A set of key-value pairs of the attributes to update the resources with.
+      #   A set of key-value pairs of the attributes to update the resources with. 
       # @param [DataMapper::Collection] collection
       #   The collection object that should be used to find the resource(s) to update.
       #
@@ -116,8 +118,10 @@ module DataMapper
           model = resource.model
           attributes = resource.dirty_attributes
 
+          # We push here as we are using this adpater to store the WG Activity stream and we want a queue
+          # Obviously would not work with other projects
           resource.model.properties.select {|p| p.index}.each do |property|
-            @redis.sadd("#{storage_name}:#{property.name}:#{encode(resource[property.name.to_s])}", resource.key.join.to_s)
+            @redis.rpush("#{storage_name}:#{property.name}:#{encode(resource[property.name.to_s])}", resource.key.join.to_s)
           end
 
           properties_to_set = []
