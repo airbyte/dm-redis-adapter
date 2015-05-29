@@ -47,7 +47,6 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<jeweler>, [">= 1.4.0"])
       s.add_runtime_dependency(%q<rake>, [">= 10.0.3"])
       s.add_runtime_dependency(%q<hiredis>, ["~> 0.5.0"])
-      s.add_runtime_dependency(%q<hiredis>, ["~> 0.5.0"])
       s.add_runtime_dependency(%q<redis>, [">= 3.0.4"])
     else
       s.add_dependency(%q<dm-core>, [">= 1.2.0"])
@@ -56,7 +55,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<redis>, [">= 3.0.4"])
       s.add_dependency(%q<jeweler>, [">= 1.4.0"])
       s.add_dependency(%q<rake>, [">= 10.0.3"])
-      s.add_dependency(%q<hiredis>, ["~> 0.5.0"])
       s.add_dependency(%q<hiredis>, ["~> 0.5.0"])
       s.add_dependency(%q<redis>, [">= 3.0.4"])
     end
@@ -67,7 +65,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<redis>, [">= 3.0.4"])
     s.add_dependency(%q<jeweler>, [">= 1.4.0"])
     s.add_dependency(%q<rake>, [">= 10.0.3"])
-    s.add_dependency(%q<hiredis>, ["~> 0.5.0"])
     s.add_dependency(%q<hiredis>, ["~> 0.5.0"])
     s.add_dependency(%q<redis>, [">= 3.0.4"])
   end
